@@ -4,6 +4,7 @@ apply plugin: 'java'
 
 
 processResources {
+    def env = System.getProperty("env") ?: "dev"
     println "==> Load configuration for $env"
     def config =  new ConfigSlurper(env).parse(file("config.groovy").toURI().toURL()).toProperties()
 
